@@ -27,7 +27,17 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+  $('button').on('click', function () {
+    var i;
+    for (i=0; i<window.dancers.length-1; i++) {
+      if (window.dancers[i].type === 'scuba') {
+        window.dancers[i].lineup.call(dancers[i], 200);
+      }
+    }
+  });
+
 });
 

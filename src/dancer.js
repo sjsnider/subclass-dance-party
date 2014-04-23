@@ -37,3 +37,8 @@ var Dancer = function(top, left, timeBetweenSteps){
     this.$node.css(styleSettings);
   };
 
+  Dancer.prototype.lineup = function (newLeft) {
+    this._left = newLeft;
+    this.setPosition(this._top, newLeft);
+  };
+

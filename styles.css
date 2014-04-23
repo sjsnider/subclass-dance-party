@@ -68,3 +68,15 @@ body, a:link, a:visited, a:active{
   width: 150px;
   border: 0;
 }
+.scuba {
+  background-image: url('images/scuba.png');
+  width: 59px;
+  height: 120px;
+  border: 0;
+}
+.scubaup {
+  background-image: url('images/scuba-up.png');
+  width: 59px;
+  height: 120px;
+  border: 0;
+}
