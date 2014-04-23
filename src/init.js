@@ -32,7 +32,7 @@ $(document).ready(function(){
   });
   $('button').on('click', function () {
     var i;
-    for (i=0; i<window.dancers.length-1; i++) {
+    for (i=0; i<window.dancers.length; i++) {
       if (window.dancers[i].type === 'scuba') {
         window.dancers[i].lineup.call(dancers[i], 200);
       }
