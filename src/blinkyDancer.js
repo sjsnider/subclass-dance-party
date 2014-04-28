@@ -1,24 +1,13 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps){
-  // var blinkyDancer = new Dancer(top, left, timeBetweenSteps);
-Dancer.call(this, top, left, timeBetweenSteps);
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
+var BlinkyDancer = function (top, left, timeBetweenSteps) {
+  var blinkyDancer = new Dancer(top, left, timeBetweenSteps);
+  // this.prototype = inherit(Dancer.prototype);
 
- // var oldStep = this.step; // this refers to blinky dancer because this coed wouldn't run until everything had been looaded below, because this doesn't run until new is called
-// don't need it
+  blinkyDancer.oldStep = Dancer.prototype.step;
+
+  blinkyDancer.step = function() {
+    blinkyDancer.oldStep();
+    blinkyDancer.$node.toggle();
+  };
 
   return blinkyDancer;
 };
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
-BlinkyDancer.prototype.constructor = BlinkyDancer;
-  blinkyDancer.prototype.step = function(){
-    // call the old version of step at the beginning of any call to this new version of step
-    Dancer.prototype.step.call(this);
-    // toggle() is a jQuery method to show/hide the <span> tag.
-    // See http://api.jquery.com/category/effects/ for this and
-    // other effects you can use on a jQuery-wrapped html tag.
-    this.$node.toggle();
-  };
-
-  //prototype is a key on the BlinkyDancer object that contains all the functions
-  // object.create makes an empty object that delegates to master class.  thats why you point subclass prototype to the empty object
